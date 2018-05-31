@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="cpb.type_user_manager.class">ClubProBundle\Manager\TypeUserManager</parameter>
+        <parameter key="cpb.projet_manager.class">ClubProBundle\Manager\ProjetManager</parameter>
+        <parameter key="cpb.secteur_manager.class">ClubProBundle\Manager\SecteurManager</parameter>
+        <parameter key="cpb.user_manager.class">ClubProBundle\Manager\UserManager</parameter>
+        <parameter key="cpb.sous_secteur_manager.class">ClubProBundle\Manager\SousSecteurManager</parameter>
+    </parameters>
+
+    <services>
+        <service id="cpb.type_user_manager" class="%cpb.type_user_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+        </service>
+        
+        <service id="cpb.projet_manager" class="%cpb.projet_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+        </service>
+        
+        <service id="cpb.secteur_manager" class="%cpb.secteur_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+        </service> 
+        
+        <service id="cpb.user_manager" class="%cpb.user_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+        </service> 
+
+        <service id="cpb.sous_secteur_manager" class="%cpb.sous_secteur_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+        </service> 
+    </services>
+
+</container>
